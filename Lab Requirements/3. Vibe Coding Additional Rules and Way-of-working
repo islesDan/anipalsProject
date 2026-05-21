@@ -1,108 +1,88 @@
-# AniPals – Vibe Coding Additional Rules and Way-of-working
+AniPals – Vibe Coding Additional Rules and Way-of-working
 
-## Development Philosophy
+Development Philosophy
 
-The development process of AniPals should focus on clean collaboration, readable code, stable feature implementation, and consistent progress tracking. Team members are encouraged to prioritize maintainability and communication throughout the project lifecycle.
+The development process of AniPals focuses on clean collaboration, readable code, stable feature implementation, and consistent progress tracking. Team members are encouraged to prioritize maintainability and communication throughout the project lifecycle.
 
----
 
-# Team Collaboration Rules
+Team Collaboration Rules
 
-## Task Assignment
+Task Assignment
+- Each member is assigned specific responsibilities and features.
+- Members should avoid modifying another member’s code without permission.
+- Major feature changes must first be discussed with the team.
 
-* Each member is assigned specific responsibilities and features.
-* Members should avoid modifying another member’s code without permission.
-* Major feature changes must first be discussed with the team.
+Communication
+- Team updates should be shared regularly.
+- Bugs, blockers, and unfinished tasks must be reported immediately.
+- Important development decisions should be documented.
 
-## Communication
+Contribution Expectations
+- Every member should commit meaningful progress regularly.
+- Inactive or unfinished tasks should be communicated early.
+- Members should assist each other when integration issues occur.
 
-* Team updates should be shared regularly.
-* Bugs, blockers, and unfinished tasks must be reported immediately.
-* Important development decisions should be documented.
 
-## Contribution Expectations
+GitHub and Version Control Workflow
 
-* Every member should commit meaningful progress regularly.
-* Inactive or unfinished tasks should be communicated early.
-* Members should assist each other when integration issues occur.
+Branching Workflow
+- Main branch contains stable code only.
+- Feature development should preferably use separate branches.
+- Merge changes only after testing.
 
----
+Commit Rules
+- Commit messages must clearly describe the update.
+- Avoid vague commit messages such as:
+  - update
+  - fix
+  - changes
 
-# GitHub and Version Control Workflow
+Example Good Commit Messages
+- Added gacha pity system
+- Created login API endpoint
+- Fixed multiplayer trade confirmation bug
 
-## Branching Workflow
+Push Rules
+- Push code regularly to avoid data loss.
+- Pull latest repository changes before starting development.
 
-* Main branch contains stable code only.
-* Feature development should preferably use separate branches.
-* Merge changes only after testing.
 
-## Commit Rules
+Coding Standards
 
-* Commit messages must clearly describe the update.
-* Avoid vague commit messages such as:
+Code Readability
+- Use meaningful variable and function names.
+- Keep functions modular and organized.
+- Avoid unnecessary duplication of code.
 
-  * “update”
-  * “fix”
-  * “changes”
+File Organization
+- Separate frontend and backend logic properly.
+- Store reusable components in organized folders.
+- Maintain consistent naming conventions.
 
-### Example Good Commit Messages
+Documentation
+- Complex systems should include comments or explanations.
+- API endpoints should be documented when added.
 
-* Added gacha pity system
-* Created login API endpoint
-* Fixed multiplayer trade confirmation bug
 
-## Push Rules
+Testing and Quality Assurance
 
-* Push code regularly to avoid data loss.
-* Pull latest repository changes before starting development.
+Testing Rules
+- Features must be tested before pushing.
+- Bugs discovered during testing should be fixed immediately.
+- Multiplayer features must be checked for synchronization issues.
 
----
-
-# Coding Standards
-
-## Code Readability
-
-* Use meaningful variable and function names.
-* Keep functions modular and organized.
-* Avoid unnecessary duplication of code.
-
-## File Organization
-
-* Separate frontend and backend logic properly.
-* Store reusable components in organized folders.
-* Maintain consistent naming conventions.
-
-## Documentation
-
-* Complex systems should include comments or explanations.
-* API endpoints should be documented when added.
-
----
-
-# Testing and Quality Assurance
-
-## Testing Rules
-
-* Features must be tested before pushing.
-* Bugs discovered during testing should be fixed immediately.
-* Multiplayer features must be checked for synchronization issues.
-
-## Gameplay Validation
-
+Gameplay Validation
 The following systems must be verified carefully:
+- Gacha pity calculations
+- Weather event activation
+- Trading confirmations
+- Inventory synchronization
+- Offline progression rewards
 
-* Gacha pity calculations
-* Weather event activation
-* Trading confirmations
-* Inventory synchronization
-* Offline progression rewards
 
----
+Development Priorities
 
-# Development Priorities
-
-## Priority Order
-
+Priority Order
 1. User authentication system
 2. Database integration
 3. Core farming gameplay
@@ -111,27 +91,22 @@ The following systems must be verified carefully:
 6. Multiplayer interactions
 7. UI improvements and polish
 
----
 
-# UI/UX Development Rules
+UI/UX Development Rules
 
-## Interface Design
+Interface Design
+- Maintain a cozy and colorful pixel-art atmosphere.
+- Keep menus simple and readable.
+- Avoid overcrowding the interface.
 
-* Maintain a cozy and colorful pixel-art atmosphere.
-* Keep menus simple and readable.
-* Avoid overcrowding the interface.
+User Experience
+- Tutorials should guide first-time players clearly.
+- Important player actions should display confirmation prompts.
+- Animations and transitions should remain smooth and responsive.
 
-## User Experience
 
-* Tutorials should guide first-time players clearly.
-* Important player actions should display confirmation prompts.
-* Animations and transitions should remain smooth and responsive.
-
----
-
-# Final Development Rules
-
-* Prioritize stability over unnecessary features.
-* Keep gameplay systems balanced and fair.
-* Maintain respectful teamwork and collaboration.
-* Ensure all project files are backed up through GitHub regularly.
+Final Development Rules
+- Prioritize stability over unnecessary features.
+- Keep gameplay systems balanced and fair.
+- Maintain respectful teamwork and collaboration.
+- Ensure all project files are backed up through GitHub regularly.
