@@ -1,0 +1,161 @@
+ANIPALS — VIBE CODING RULES
+
+1. Visual Vibe: “Soft Chaos Ecosystem”
+Pixel art but alive (idle animations, tiny movements)
+UI should feel like:
+cozy farm 
+hacker pet manager 
+chaotic critter capitalism 
+
+Rules:
+No static screens. Something must always move
+Weather overlays must breathe, not just sit there
+
+Pets = expressive (bounce, blink, react to weather)
+
+2. System Vibe: “Idle… but Never Idle”
+Your game is secretly 3 games stitched together:
+
+Mode              Feel
+Idle                 calm progression  
+Mini-games    skill burst
+Multiplayer     social chaos
+
+Rule:
+Player should ALWAYS feel like:
+“Something is progressing even if I do nothing”
+
+3. Reward Philosophy: “Tiny Dopamine, Frequent”
+Gacha pulls = emotional spikes 
+Weather = surprise modifier 
+Raids = social tension 
+
+Rule:
+Never make players wait long without feedback
+Even small rewards must feel intentional
+
+4. Pet Identity Rule
+Each Anipal must feel like:
+a worker
+a character
+a build choice
+
+Example:
+🐢 Turtle → slow but boosts offline gains
+🐒 Monkey → increases raid success
+🦉 Owl → boosts rare drop rates during night weather
+
+GAME CONTEXT
+
+When you explain:
+“Anipals is a hybrid simulation system that combines deterministic idle progression with stochastic reward mechanics and player-driven interaction systems.”
+
+Translation:
+Idle system = predictable growth
+Gacha = randomness
+Multiplayer = human chaos
+
+CORE GAME LOOP (VERY IMPORTANT FOR PRESENTATION)
+Macro Loop (Long-term)
+Login → Manage Farm → Run Tasks → Earn Rewards → Upgrade Pets → Repeat 
+
+Micro Loop (Moment-to-moment)
+Click → Action → Feedback → Reward → Decision 
+
+FLOW OF THE GAME (USER JOURNEY)
+1. ENTRY FLOW
+Login → Create Name → Receive Starter Anipal → Tutorial (Gacha) 
+
+Key detail:
+Tutorial is interactive, not just text
+Player actually pulls
+
+2. GACHA FLOW (CRITICAL SYSTEM)
+Earn Currency → Pull → Animation → Reveal → Update Inventory → Check Pity 
+
+Hidden System Logic:
+pityCounter++
+if pity == 75 → force 5★
+if lost 50/50 → next = guaranteed premium
+This is PERFECT for explaining state management + encapsulation
+
+3. WEATHER SYSTEM FLOW
+Timer → Weather Change → Apply Modifiers → Update UI Overlay → Affect Gameplay 
+
+Examples:
+Rain 🌧️ → +crop drops
+Storm ⛈️ → +raid success risk/reward
+Heat ☀️ → faster pet fatigue
+This is a Strategy Pattern goldmine
+
+4. MULTIPLAYER FLOW
+Search UID → Visit Player → Choose Action → Confirm → Execute → Sync Result 
+
+Trade Flow (VERY DEFENSIBLE DESIGN)
+Player A selects items Player B selects items → BOTH confirm → Server validates → Execute trade 
+
+Say this in defense:
+“We used a dual-confirmation transactional system to ensure consistency and prevent race conditions.”
+
+5. RAID FLOW
+Visit Farm → Choose Raid → Calculate Outcome → Apply Loss/Gain → Notify Player 
+
+Risk vs reward
+Influenced by:
+pets
+weather
+randomness
+
+SYSTEM DESIGN MAPPING (FOR OOP + GRASP)
+🎯 Key Classes
+User
+PlayerProfile 
+Anipal 
+GameSession 
+WeatherSystem 
+GachaSystem 
+TradeSystem 
+RaidSystem 
+
+Design Patterns YOU ARE USING
+Gacha → Strategy + State
+Different banners = different logic
+Weather → Strategy Pattern
+interface WeatherEffect { void applyEffect(Player player); } 
+Trade → Transaction Script
+Controlled, validated execution
+Anipals → Inheritance + Polymorphism
+abstract class Anipal { abstract void performTask(); } 
+
+EDGE CASES
+Player disconnect during trade
+Double confirmation spam
+Gacha pity overflow
+Raid abuse (cooldowns)
+Weather sync across players
+
+TESTING STRATEGY
+Test:
+Gacha probabilities + pity
+Trade validation
+Weather effects
+Raid calculations
+
+HOW YOU SHOULD EXPLAIN THIS
+If your prof asks:
+“Why is your system well-designed?”
+
+You say:
+“We separated core gameplay systems like Gacha, Weather, and Trading into independent services using SOLID principles. Each system encapsulates its own logic, making the architecture modular, testable, and extendable.”
+
+BONUS FEATURES
+AI raid defenders
+Real-time visits 
+Pet stat builds
+Farm customization
+
+FINAL THOUGHT
+Your game already has something many student projects don’t:
+👉 emergent gameplay
+(players interacting, not just clicking buttons)
+That alone is powerful.
