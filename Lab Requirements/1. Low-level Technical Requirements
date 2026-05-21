@@ -1,0 +1,818 @@
+1. Project Overview
+App Name
+AniPals
+
+2. Project Description
+AniPals is a web-based multiplayer pixel-art farming simulation game where players manage a community of autonomous animal companions called “AniPals.”
+
+Unlike traditional farming games where players manually perform repetitive tasks, AniPals focuses on strategic management. AniPals automatically perform farming, gathering, and production tasks while players focus on progression, optimization, collection, and multiplayer interaction.
+
+The game combines:
+Idle progression systems
+Real-time multiplayer interactions
+Pet collection mechanics
+Farming simulation
+Competitive and cooperative gameplay
+Interactive mini-games
+
+Players can:
+Build and manage farms
+Collect AniPals through a gacha system
+Upgrade and optimize AniPals
+Trade items and AniPals
+Visit other players’ farms
+Send gifts
+Participate in raids
+Progress even while offline
+
+---
+
+3. Problem Being Solved
+Many farming and idle simulation games suffer from:
+Repetitive gameplay loops
+Minimal multiplayer interaction
+Limited long-term progression
+Weak social systems
+Lack of dynamic gameplay changes
+
+This commonly leads to:
+Reduced player retention
+Low replayability
+Passive gameplay fatigue
+Limited player engagement
+
+---
+
+4. Goal Solution
+AniPals solves these problems by combining:
+Idle progression
+Multiplayer social interaction
+Dynamic weather systems
+Collection-based progression
+Competitive and cooperative mechanics
+
+This platform allows users to:
+Progress while offline
+Socialize with friends
+Trade safely with other players
+Collect rare AniPals
+Experience changing gameplay through weather events
+Participate in rewarding gameplay loops
+
+---
+
+5. Target Users
+Primary Users
+Teenagers
+Young adults
+Casual gamers
+Farming game enthusiasts
+Idle game players
+Multiplayer social gamers
+
+---
+
+6. Competitor Analysis
+Similar Applications
+Harvest Town
+Pou
+Stardew Valley
+Clash of Clans
+FarmVille
+
+
+
+---
+
+7. Unique Selling Points
+
+---
+
+7.1 Dynamic Weather Events
+Description
+Weather conditions dynamically affect gameplay.
+
+Features 
+Environmental overlays
+Temporary buffs/debuffs
+Exclusive drops
+AniPal efficiency boosts
+
+Example
+Rain Weather:
++20% crop growth speed
+Increased water resource drops
+
+---
+
+7.2 Gacha Upgrade System
+Description
+Players collect rare AniPal variants using a pity-based gacha system.
+
+Features
+Earn pulls through gameplay
+Premium rarity guarantees
+Separate banners for tools and AniPals
+
+—
+
+7.3 Multiplayer Trading System
+Features
+Players can:
+Add friends through UID
+Trade
+Battle
+Message
+Send gifts
+Trade Safety
+Both players must confirm
+Items visible before confirmation
+Ownership validation required
+
+
+
+---
+
+8. Recommended Technology Stack
+
+---
+
+Frontend
+Language
+TypeScript
+Framework
+React + Vite
+Libraries
+React Router
+Zustand
+Axios
+Tailwind CSS
+Socket.IO Client
+Framer Motion
+
+---
+
+Backend
+Language
+Java 21
+Framework
+Spring Boot
+Libraries
+Spring Security
+Spring Data JPA
+JWT
+WebSocket
+Lombok
+PostgreSQL Driver
+
+---
+
+Database
+PostgreSQL
+
+---
+
+Architecture Style
+Backend
+Layered Architecture
+REST API
+WebSocket Event Architecture
+
+Frontend
+Component-Based Architecture
+Feature-Based Folder Structure
+
+---
+
+9. System Architecture
+
+---
+
+Frontend Modules
+Authentication Module
+Tutorial Module
+Farm Module
+Inventory Module
+Gacha Module
+Friend Module
+Trading Module
+Messaging Module
+Weather Module
+
+---
+
+Backend Modules
+Auth Service
+User Service
+AniPal Service
+Farm Service
+Inventory Service
+Gacha Service
+Trade Service
+Social Service
+Weather Service
+
+---
+
+10. MVP Scope
+
+---
+
+PRIORITY 1 — CORE PLAYABLE MVP
+These features are required before launch.
+---
+
+10.1 Authentication System
+Functional Requirements
+User registration
+Login/logout
+JWT session authentication
+Username creation after first login
+
+Technical Requirements
+Backend
+
+Controllers:
+AuthController
+
+Services:
+AuthService
+JwtService
+
+Repositories:
+UserRepository
+
+---
+
+User Entity
+Fields:
+id
+email
+password
+username
+uid
+createdAt
+
+—
+
+10.2 Tutorial System
+Functional Requirements
+First login automatically triggers tutorial
+Tutorial teaches:
+Basic movement
+Gacha pull
+Farming basics
+
+---
+
+Technical Requirements
+State Flow
+Tutorial States:
+1. INTRO
+2. GACHA_PULL
+3. FARMING
+4. COMPLETE
+
+---
+
+10.3 AniPal System
+Functional Requirements
+Every player receives:
+Starter AniPal
+Random AniPal
+AniPals automate farming
+
+---
+
+AniPal Attributes
+Fields:
+id
+name
+rarity
+level
+stamina
+hunger
+efficiency
+type
+
+---
+
+AniPal Types
+Farming
+Gathering
+Mining
+Support
+
+
+
+---
+
+10.4 Gacha System
+Functional Requirements
+Pull using currency
+75-pull guaranteed 5-star
+10-pull guaranteed 4-star
+50/50 premium guarantee
+Separate banners
+
+---
+
+Technical Requirements
+Services
+GachaService
+PityService
+RewardService
+
+---
+
+Gacha Rates
+5-Star
+0.006%
+4-Star
+Guaranteed every 10 pulls
+
+
+---
+
+Pity Logic
+Standard Rule
+At 75 pulls:
+Guaranteed 5-star
+50/50 Rule
+If player loses premium:
+Next 5-star guaranteed premium
+
+---
+
+10.5 Farm System
+Functional Requirements
+Crops grow over time
+AniPals automate harvesting
+Offline progress supported
+
+---
+
+Farm Plot States
+States
+EMPTY
+PLANTED
+GROWING 
+READY
+HARVESTED
+
+
+
+---
+
+Technical Requirements
+Services
+FarmService
+CropService
+OfflineProgressService
+
+---
+
+10.6 Inventory System
+Functional Requirements
+Store:
+Crops
+Tools
+Materials
+AniPal upgrade items
+
+---
+
+Technical Requirements
+Features
+Stackable items
+Max inventory size
+Item sorting
+
+---
+
+PRIORITY 2 — MULTIPLAYER SYSTEMS
+---
+
+10.7 Friend System
+Functional Requirements
+Add friend via UID
+Accept/reject requests
+View profile
+
+---
+
+10.8 Trading System
+Functional Requirements
+Real-time trade rooms
+Add/remove items
+Dual confirmation
+
+---
+Trade Flow
+Steps
+1. Player A invites Player B
+2. Trade room created
+3. Both add items
+4. Both confirm
+5. Server validates ownership
+6. Trade executes
+---
+
+Validation Rules
+Cannot trade equipped items
+Cannot trade nonexistent items
+Inventory updated atomically
+
+---
+
+10.9 Messaging System
+Features
+Direct messages
+Inbox
+Notification badge
+---
+
+10.10 Gift System
+Features
+Daily gift limit
+Gift notifications
+
+---
+PRIORITY 3 — RETENTION FEATURES
+---
+
+10.11 Weather Event System
+Weather Types
+Rain
+Storm
+Heatwave
+Lucky Day
+
+---
+
+Effects
+Rain
+Faster crops
+
+Lucky Day
+Increased rare drops
+
+---
+
+10.12 Mini-Games
+Purpose
+Reward players with:
+Coins
+Pull currency
+Materials
+
+---
+
+Examples
+Fishing game
+Timing game
+Harvest clicking game
+
+---
+
+10.13 Raid System
+Features
+Friendly competitive raids
+Limited steal amount
+Cooldown timers
+
+---
+11. Database Design
+---
+Core Tables
+users
+id
+email
+password
+username
+uid
+tutorial_completed
+---
+anipals
+id
+name
+rarity
+type
+base_efficiency
+---
+player_anipals
+id
+player_id
+anipal_id
+level
+stamina
+hunger
+---
+farms
+id
+player_id
+---
+farm_plots
+id
+farm_id
+crop_id
+state
+planted_at
+ready_at
+---
+inventory_items
+
+id
+player_id
+item_id
+quantity
+---
+player_pity
+id
+player_id
+banner_type
+pity_count
+guaranteed_premium
+---
+friends
+id
+player_one
+player_two
+---
+messages
+id
+sender_id
+receiver_id
+content
+sent_at
+---
+12. Backend API Requirements
+---
+Authentication APIs
+POST /api/auth/register
+Creates account
+---
+POST /api/auth/login
+Returns JWT token
+---
+User APIs
+POST /api/user/username
+Creates username
+---
+GET /api/user/profile/{uid}
+Gets player profile
+---
+Gacha APIs
+POST /api/gacha/pull
+Performs pull
+—
+GET /api/gacha/banner
+Gets active banner
+---
+Farm APIs
+GET /api/farm
+Gets farm data
+---
+POST /api/farm/plant
+Plants crop
+---
+POST /api/farm/harvest
+Harvest crop
+---
+Trade APIs
+POST /api/trade/request
+Create trade request
+---
+POST /api/trade/confirm
+Confirm trade
+---
+13. Frontend Requirements
+---
+Screens
+Authentication
+Login
+Register
+
+---
+Tutorial
+Guided overlays
+Dialogue system
+
+---
+Main Farm
+Farm grid
+AniPal status
+Weather display
+
+—
+Gacha Screen
+Banner display
+Pull animation
+Pull history
+
+---
+Inventory Screen
+Sort/filter system
+
+---
+Social Screen
+Friends list
+Messages
+Trade requests
+
+---
+14. Recommended OOP Design
+---
+SOLID Principles
+Single Responsibility
+Each service handles one domain only.
+
+Example:
+GachaService only handles pulls.
+
+---
+
+Open/Closed
+Weather effects extend through strategies.
+---
+Dependency Inversion
+Controllers depend on interfaces.
+—
+GRASP Principles
+Controller
+Controllers handle API entry only.
+---
+Information Expert
+Farm entity handles farm state.
+---
+Low Coupling
+Trading isolated from farming.
+---
+High Cohesion
+Each module owns one responsibility.
+---
+15. Recommended Design Patterns
+---
+
+Factory Pattern
+Used for:
+AniPal generation
+Loot generation
+---
+Strategy Pattern
+Used for:
+Weather effects
+Reward calculations
+---
+Observer Pattern
+Used for:
+Real-time updates
+Notifications
+---
+
+State Pattern
+Used for:
+Tutorial flow
+Crop growth
+---
+Singleton Pattern
+Used carefully for:
+Weather manager
+---
+16. Non-Functional Requirements
+---
+Performance
+API response < 500ms
+WebSocket latency < 300ms
+---
+Security
+JWT auth
+BCrypt passwords
+Trade validation
+Input sanitization
+---
+Scalability
+Modular services
+Future Redis support
+---
+Reliability
+Atomic trade transactions
+Rollback on failure
+---
+17. MVP User Flows
+---
+FLOW 1 — New Player Onboarding
+Goal
+Get player into gameplay quickly.
+Steps
+1. User registers account
+2. User logs in
+3. User creates username
+4. Tutorial automatically starts
+5. User performs tutorial gacha pull
+6. User receives starter AniPal
+7. User plants first crop
+8. Tutorial completes
+9. User enters main gameplay loop
+---
+
+FLOW 2 — Core Gameplay Loop
+Goal
+Establish repeatable gameplay cycle.
+Steps
+1. Player logs in
+2. Collects offline rewards
+3. Checks farm status
+4. AniPals harvest crops
+5. Player collects resources
+6. Player upgrades inventory/resources
+7. Player plays mini-games
+8. Earns gacha currency
+9. Performs gacha pulls
+10. Obtains stronger AniPals
+11. Improves farming efficiency
+12. Repeats cycle
+---
+
+FLOW 3 — Gacha Pull Flow
+Steps
+1. Player opens banner
+2. Player selects pull count
+3. Backend validates currency
+4. Pity counter checked
+5. Rewards generated
+6. Inventory updated
+7. Pull animation shown
+8. Results displayed
+9. Pity updated
+
+---
+FLOW 4 — Trading Flow
+Steps
+1. Player searches UID
+2. Sends trade request
+3. Other player accepts
+4. Trade room opens
+5. Both players add items
+6. Both confirm
+7. Backend validates ownership
+8. Trade executes atomically
+9. Trade success notification shown
+
+---
+FLOW 5 — Offline Progression Flow
+Steps
+1. Player exits game
+2. Server records timestamp
+3. AniPals continue simulated work
+4. Player returns
+5. Backend calculates elapsed time
+6. Rewards generated
+7. Summary popup displayed
+
+---
+FLOW 6 — Weather Event Flow
+Steps
+1. Global weather rotates
+2. Weather notification appears
+3. Farm visuals update
+4. Gameplay modifiers activate
+5. Special drops become available
+
+---
+18. Recommended MVP Milestones
+---
+Milestone 1
+Authentication + Tutorial
+---
+Milestone 2
+Farm + AniPal Automation
+---
+Milestone 3
+Inventory + Offline Rewards
+---
+Milestone 4
+Gacha System
+---
+Milestone 5
+Friends + Trading
+---
+Milestone 6
+Weather + Mini-Games
+---
+19. Recommended Definition of MVP Completion
+
+AniPals MVP is considered complete when:
+Users can register/login
+Tutorial is functional
+Farming loop works
+AniPals automate tasks
+Offline progression works
+Gacha system functions correctly
+Inventory persists properly
+Trading system works safely
+Multiplayer interaction exists
+Basic weather system functions
+
+
+
