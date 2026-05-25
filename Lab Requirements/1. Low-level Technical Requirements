@@ -300,7 +300,6 @@ type
 AniPal Types
 Farming
 Gathering
-Mining
 Support
 
 
@@ -813,6 +812,3 @@ Inventory persists properly
 Trading system works safely
 Multiplayer interaction exists
 Basic weather system functions
-
-
-
